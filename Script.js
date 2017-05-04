@@ -1,15 +1,16 @@
-var myApp = angular.module("myModule", []);
-
-myApp.controller("myController", function($scope) {
-	"use strict";
-	var ourRequest = new XMLHttpRequest();
-	ourRequest.open('GET', 'https://graph.facebook.com/me/friends?fields=last_name,first_name,id,gender&access_token=EAACEdEose0cBAN6ZBezBN61FXJEYx7Ax50YPE5RA5G9vpav7nPXv1Wy4Oq1ARrUu4I4AmjpEqPQ6LBWNfdiW36mEvPO1lZAKwqxwIq2B5iTXLkOBNMfDDmpUMFvvhCRfmtOixOZCXDvkwJve8O8BLxuAuHU7vIR2l0MAV3kxWg0GA2EGrHcgHovTz2mSNkZD');
-	ourRequest.onload = function() {
-		var ourData = JSON.parse(ourRequest.responseText);
-		console.log(ourData.data[0].last_name);
-	};
 
 
+var app = angular.module("myModule", []);
 
-	ourRequest.send();
+
+app.controller("myController", function($scope, $http) {
+	$http.get('https://graph.facebook.com/v2.9/msaatucd?fields=about,location,name,mission,events{attending_count,name,maybe_count,declined_count,noreply_count,interested_count,photos{link}}&access_token=EAACUDfgUluwBABH74wZCv4JMRkAfKCBADNgxxl2ZBKhZCgslT410n0ieCNHAIC7RU3UZAx9ZAEf1TaNAEqBXac9jUppbEPdlFdbZCMhGO0vdq2uwkndROw2ZAA6h8iRYR9xf0ER2xYuynbdIbUm62xaLDd5AWE5DI7z9nE4mkYJ9KNLA1CnNyXCZAzCJP75qzy4ZD')
+	.success(function(data,status,headers,config) {
+		$scope.posts = data.events.data;
+		$scope.post = data;
+		console.log(data);
+	}).error(function(data,status,headers,config) {
+		console.log("You have an error buddy");
+	});
 });
+

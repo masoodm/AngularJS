@@ -3,29 +3,38 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Facebook API Presentation</title>
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
 	</head>
 
     <body ng-controller="myController">
+    <h1>{{post.name}}</h1>
         <table>
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Gender</th>
-                    <th>ID</th>
+                    <th>Event Name</th>
+                    <th>Went</th>
+                    <th>Maybe Went</th>
+                    <th>Did not go</th>
+                    <th>Did not respond</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="person in persons">
-                    <th>{{person.first_name}}</th>
-                    <th>{{person.last_name}}</th>
-                    <th>{{person.gender}}</th>
-                    <th>{{person.id}}</th>
+                <tr ng-repeat="person in posts">
+                    <th>{{person.name}}</th>
+                    <th>{{person.attending_count}}</th>
+                    <th>{{person.interested_count}}</th>
+                    <th>{{person.declined_count}}</th>
+                    <th>{{person.noreply_count}}</th>
+
                 </tr>
             </tbody>
         </table>
 
-        <script src="angular/angular.js"></script>
+
+        <script src="bower_components/angular/angular.js"></script>
         <script src="Script.js"></script>
+        <script type="text/javascript" src="/Users/masoodmawlavizada/Desktop/IETProject/bower_components/angular-aria/angular-aria.js"></script>
+        <script type="text/javascript" src="/Users/masoodmawlavizada/Desktop/IETProject/bower_components/angular-material/angular-material.js"></script>
     </body>
 </html>
+
