@@ -1,16 +1,40 @@
 
 
-var app = angular.module("myModule", []);
+// var app = angular.module("myModule", []);
 
+// app.controller("myController", function($scope, $http) {
+// 	$http.get('https://graph.facebook.com/v2.9/msaatucd?fields=about,location,name,mission,events{attending_count,name,maybe_count,declined_count,noreply_count,interested_count,photos{link}}&access_token=EAACUDfgUluwBALv4UUZCTo4DyCwe4tvuhJG3MuFKLCXvo0m967V48FRor7gj5c32tG7kaxPdaXUKWvbZA7kMW1AZCrCt3EufSwVXLcFElrZBmTDxBNZCTKhUKgkS2bwgaJ9Rp2NgethqBJRHXfRXnS0bis7ByzuxIv4oyhE6VKJnJEtucaI4gZBjRbg9f4ihcZD')
+// 	.then(function(data,status,headers,config) {
+// 		$scope.posts = data.events.data;
+// 		$scope.post = data;
+// 		console.log(data);
+// 	}).function(data,status,headers,config) {
+// 		console.log("You have an error buddy");
+// 					$scope.h = "hlkj";
+
+// 	};
+
+
+// });
+
+var app = angular.module("myModule", [ngMaterial]);
 
 app.controller("myController", function($scope, $http) {
-	$http.get('https://graph.facebook.com/v2.9/msaatucd?fields=about,location,name,mission,events{attending_count,name,maybe_count,declined_count,noreply_count,interested_count,photos{link}}&access_token=EAACUDfgUluwBABH74wZCv4JMRkAfKCBADNgxxl2ZBKhZCgslT410n0ieCNHAIC7RU3UZAx9ZAEf1TaNAEqBXac9jUppbEPdlFdbZCMhGO0vdq2uwkndROw2ZAA6h8iRYR9xf0ER2xYuynbdIbUm62xaLDd5AWE5DI7z9nE4mkYJ9KNLA1CnNyXCZAzCJP75qzy4ZD')
-	.success(function(data,status,headers,config) {
-		$scope.posts = data.events.data;
-		$scope.post = data;
-		console.log(data);
-	}).error(function(data,status,headers,config) {
-		console.log("You have an error buddy");
-	});
+
+$http.get('https://graph.facebook.com/v2.9/msaatucd?fields=about,location,name,mission,events{attending_count,name,maybe_count,declined_count,noreply_count,interested_count,photos{link}}&access_token=EAACUDfgUluwBAKo1tS4UY0O9Hq4CQCgwCrwLKuJKhvQkAweLeLYvcYvvLjlpmprjtG9mqKjd3wp9Ahm0LcwzpEypzlONBKGKTZCCbhNiBdKXg3Oo4fVLg4THQANgeZAZAZBBEvqUj9tiFKfmK0aWQfnd7vlLTrEZBRoemcvxVMKQPrliVgjsHoP602rjDkI0ZD')
+  .then(function (response) {
+
+    var data = response.data;
+    var status = response.status;
+    var statusText = response.statusText;
+    var headers = response.headers;
+    var config = response.config;
+
+    var impData = response.data.events.data;
+
+    $scope.post = data;
+    $scope.posts = impData;
+    console.log(data);
 });
 
+});
