@@ -17,11 +17,11 @@
 
 // });
 
-var app = angular.module("myModule", [ngMaterial]);
+var app = angular.module("myModule", []);
 
 app.controller("myController", function($scope, $http) {
 
-$http.get('https://graph.facebook.com/v2.9/msaatucd?fields=about,location,name,mission,events{attending_count,name,maybe_count,declined_count,noreply_count,interested_count,photos{link}}&access_token=EAACUDfgUluwBAKo1tS4UY0O9Hq4CQCgwCrwLKuJKhvQkAweLeLYvcYvvLjlpmprjtG9mqKjd3wp9Ahm0LcwzpEypzlONBKGKTZCCbhNiBdKXg3Oo4fVLg4THQANgeZAZAZBBEvqUj9tiFKfmK0aWQfnd7vlLTrEZBRoemcvxVMKQPrliVgjsHoP602rjDkI0ZD')
+$http.get('https://graph.facebook.com/v2.9/478748558921942?fields=about,location,name,mission,events{attending_count,name,maybe_count,declined_count,noreply_count,interested_count,photos{link}}&access_token=EAACUDfgUluwBACYY716ZCj9wG3NmEnvsDMMeud5jTnOq6fWeo9c0076IuWVKHAd5FdfoqnU8C8SQx8tZBem1NZAXbQqZCHT2czoie3XJpW2nfztTf65mkCfwFshOckJPPnIeyiOZAD1ZC9U0rrkegZAd9cFo9p3qwWS2x1nwY6mgAZDZD')
   .then(function (response) {
 
     var data = response.data;
@@ -38,3 +38,5 @@ $http.get('https://graph.facebook.com/v2.9/msaatucd?fields=about,location,name,m
 });
 
 });
+
+
