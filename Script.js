@@ -17,7 +17,7 @@
 
 // });
 
-var app = angular.module("myModule", []);
+var app = angular.module("myModule", ['ngMaterial']);
 
 app.controller("myController", function($scope, $http) {
 
