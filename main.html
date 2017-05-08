@@ -14,51 +14,64 @@
     <h1 id="aggie_feed">aggie feed</h1>
   </div>
    <div id="body">
-
     <div id="card_contents">
-
+    <h3><bold>Would you like to view:</bold></h3>
+    <p></p>
        <md-card-content>
           <div layout="column" layout-align="space-between center">
-            <span>Which Facebook page would you like to view?</span>
-            <md-select ng-model="weapon" placeholder="MSA at UCD" class="md-no-underline">
-              <md-option value="axe">MSA at UCD</md-option>
-              <md-option value="sword">Sword</md-option>
-              <md-option value="wand">Wand</md-option>
-              <md-option value="pen">Pen?</md-option>
-            </md-select>
-          </div>
-
-          <div layout="column" layout-align="space-between center">
-            <span>What would you like to see?</span>
-            <md-select ng-model="armor" placeholder="Everything" class="md-no-underline" required="" md-no-asterisk="false">
-              <md-option value="cloth">Cloth</md-option>
-              <md-option value="leather">Leather</md-option>
-              <md-option value="chain">Chainmail</md-option>
-              <md-option value="plate">Plate</md-option>
-            </md-select>
-          </div>
-
-          <div layout="column" layout-align="space-between center">
-            <span>Will you hire me?</span>
-            <md-select ng-model="drink" placeholder="Yes" class="md-no-underline">
+            <span>People Attending/Attended</span>
+            <md-select id = "yy" ng-model="b" placeholder="Yes" class="md-no-underline" ng-init="a='Yes'" ng-click>
               <md-option value="yes">Yes</md-option>
               <md-option value="no">No</md-option>
-              <md-option value="this_does_not_do_anything">PS: This option does not do anything</md-option>
             </md-select>
           </div>
-        </md-card-content>
+       <div layout="column" layout-align="space-between center">
+            <span>People Interested</span>
+            <md-select id = "yy" ng-model="c" placeholder="Yes" class="md-no-underline" ng-init="b='Yes'" ng-click>
+              <md-option value="yes2">Yes</md-option>
+              <md-option value="no2">No</md-option>
+            </md-select>
+          </div>      
+          <div layout="column" layout-align="space-between center">
+            <span>People Declined</span>
+            <md-select id = "yy" ng-model="d" placeholder="Yes" class="md-no-underline" ng-init="c='Yes'" ng-click>
+              <md-option value="yes3">Yes</md-option>
+              <md-option value="no3">No</md-option>
+            </md-select>
+          </div>
+          <div layout="column" layout-align="space-between center">
+            <span>People With No-Responses</span>
+            <md-select id = "yy" ng-model="e" placeholder="Yes" class="md-no-underline" ng-init="d='Yes'" ng-click>
+              <md-option value="yes4">Yes</md-option>
+              <md-option value="no4">No</md-option>
+            </md-select>
+          </div>
+          <div layout="column" layout-align="space-between center">
+            <span>Event Description</span>
+            <md-select id = "yy" ng-model="f" placeholder="Yes" class="md-no-underline" ng-init="a='Yes'" ng-click>
+              <md-option value="yes5">Yes</md-option>
+              <md-option value="no5">No</md-option>
+            </md-select>
+          </div>
+          <div layout="column" layout-align="space-between center">
+            <span>Will you hire me?</span>
+           <md-select id = "yy" ng-model="g" placeholder="Yes" class="md-no-underline" ng-init="a='Yes'" ng-click>
+              <md-option value="yes6">Yes</md-option>
+              <md-option value="no6">Obviously</md-option>
+              <md-option value="no6">Heck yeah!</md-option>
+              <md-option value="no7">This item does not do anything :) </md-option>
+            </md-select>
+          </div>
+
+   <button id="button_AF" ng-click="updateInfo(b,c,d,e,f,g);">SUBMIT</button>
       </div>
-
-
-
         <div flex-gt-sm="70" flex="">
 
             <md-toolbar layout="row" class="md-hue-3">
               <div class="md-toolbar-tools">
-                <span>{{aggiefeed[0].actor.displayName}} </span>
+                <span>{{aggiefeed[0].actor.displayName}} Events</span>
               </div>
             </md-toolbar>
-
             <md-content>
               <md-list flex="">
                 <md-subheader class="md-no-sticky">Sorted by most recent/upcoming events</md-subheader>
@@ -66,124 +79,33 @@
                   <img ng-src="{{item.object.contentImage.dimensions.normal.url}}" class="md-avatar" alt="{{item.who}}">
                   <div class="md-list-item-text" layout="column">
 
-                    <h3><strong>{{ item.title }}</strong></h3>
-                    <h4><strong>Attended / Will Attend: </strong> </h4><p>{{ item.object.contentImage.ucdEdusModel.event.attended }}</p>
-                  <h4><strong>Interested: </strong></h4><p>{{ item.object.contentImage.ucdEdusModel.event.interested }}</p>
-                  <h4><strong>Declined: </strong></h4><p>{{ item.object.contentImage.ucdEdusModel.event.declined }}</p>
-                  <h4><strong>No Reply: </strong></h4><p>{{ item.object.contentImage.ucdEdusModel.event.noreply }}</p>
-                    <h4><strong>Description: </strong></h4><p>{{item.object.content}}</p>
-                   <!--  <h4>Attended / Will Attend: {{ item.attending_count }}</h4>
-                    <p>Interested: {{ item.interested_count }}</p>
-                    <p>Declined: {{item.declined_count}}</p>
-                    <p>No Reply: {{item.noreply_count}}</p> -->
+                    <h3><strong>{{ item.title }}</strong>   <span id="datee"> - {{ item.object.contentImage.ucdEdusModel.event.startDate }}</span></h3>
+
+                    <h4 id="attendance"><strong>Attended / Will Attend: </strong> </h4><p id="attendance1">{{ item.object.contentImage.ucdEdusModel.event.attended }}</p>
+                    
+                    <h4 id="interestedd"><strong>Interested: </strong></h4><p id="interestedd1">{{ item.object.contentImage.ucdEdusModel.event.interested }}</p>
+                    
+                    <h4 id="declinedd"><strong>Declined: </strong></h4><p id="declinedd1">{{ item.object.contentImage.ucdEdusModel.event.declined }}</p>
+                    
+                    <h4 id="noreplyy"><strong>No Reply: </strong></h4><p id="noreplyy1">{{ item.object.contentImage.ucdEdusModel.event.noreply }}</p>
+                    
+                    <h4 id="descriptionn"><strong>Description: </strong></h4><p id="descriptionn1">{{item.object.content}}</p>
+                                   
                   </div>
                 </md-list-item>
                 <md-divider></md-divider>
-                <!-- <md-subheader class="md-no-sticky">2 line item</md-subheader>
-                <md-list-item class="md-2-line">
-                  <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}">
-                  <div class="md-list-item-text">
-                    <h3>{{ todos[0].who }}</h3>
-                    <p>Secondary text</p>
-                  </div>
-                </md-list-item>
-                <md-divider></md-divider>
-                <md-subheader class="md-no-sticky">3 line item, long paragraph (see on mobile)</md-subheader>
-                <md-list-item class="md-3-line md-long-text">
-                  <img ng-src="{{todos[0].face}}?25" class="md-avatar" alt="{{todos[0].who}}">
-                  <div class="md-list-item-text">
-                    <h3>{{ todos[0].who }}</h3>
-                    <p>
-                      Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
-                      Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
-                      velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                    </p>
-                  </div>
-                </md-list-item>
-                <md-list-item class="md-3-line md-long-text">
-                  <img ng-src="{{todos[1].face}}?25" class="md-avatar" alt="{{todos[1].who}}">
-                  <div class="md-list-item-text">
-                    <h3>{{ todos[1].who }}</h3>
-                    <p>
-                      Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam.
-                      Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum
-                      velit. Class aptent taciti sociosqu ad litra torquent per conubia nostra, per inceptos himenaeos.
-                    </p>
-                  </div>
-                </md-list-item>
-                <md-divider></md-divider>
-                <md-subheader class="md-no-sticky">Classes</md-subheader>
-                <md-list-item class="md-2-line" ng-repeat="phone in phones">
-                  <md-icon md-svg-icon="{{phone.options.icon}}" ng-if="phone.options.icon" ng-class="{'md-avatar-icon': phone.options.avatarIcon}"></md-icon>
-                  <img ng-src="{{phone.options.face}}?25" class="md-avatar" alt="{{phone.options.face}}" ng-if="phone.options.face">
-                  <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
-                    <h3> {{ phone.number }} </h3>
-                    <p> {{ phone.type }} </p>
-                  </div>
-                  <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)" ng-if="phone.options.actionIcon" aria-label="call">
-                    <md-icon md-svg-icon="{{phone.options.actionIcon}}"></md-icon>
-                  </md-button> -->
-                <!-- </md-list-item> -->
               </md-list>
             </md-content>
           </div>
       </div>
     </div>
-
-
-
-      
 </body>
 
-      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-
-      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-
-
-      <!-- <script type="text/javascript" src="/Users/masoodmawlavizada/Desktop/IETProject/bower_components/angular-aria/angular-aria.js"></script> -->
-        <!-- <script type="text/javascript" src="/Users/masoodmawlavizada/Desktop/IETProject/bower_components/angular-material/angular-material.js"></script> -->
-
-    <!-- <script src="/Users/masoodmawlavizada/Desktop/IETProject/node_modules/angular/angular.js"></script> -->
-
-          <!-- Angular Material requires Angular.js Libraries -->
-
-  <!-- Don't think we need the first one -->
-  
-  <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-  <script src="Script.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="Script.js"></script>
 
 </html>
-
-
-
-<!--       <h2>{{h}}</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Event Name</th>
-                    <th>Went</th>
-                    <th>Maybe Went</th>
-                    <th>Did not go</th>
-                    <th>Did not respond</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="person in posts">
-                    <th>{{person.name}}</th>
-                    <th>{{person.attending_count}}</th>
-                    <th>{{person.interested_count}}</th>
-                    <th>{{person.declined_count}}</th>
-                    <th>{{person.noreply_count}}</th>
-
-                </tr>
-            </tbody>
-        </table>
-
- -->
-
-<!--  <h1>{{aggiefeed[0].ok}}</h1>
- <h2>{{phones.type}}</h2>
- <h2>hlloo</h2> -->

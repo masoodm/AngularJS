@@ -11,9 +11,6 @@
  }
 
 #body {
-	
-	/*width: 80%;*/
-	/*align-items: center;*/
 	text-align: center;
 	margin: 10%;
 	margin-top: 40px;
@@ -45,4 +42,26 @@
 	background-color: white;
 	height: 100%;
 	padding: 10px;
+}
+
+
+
+#yy {
+	margin-bottom: 20px;
+}
+
+.md-no-underline {
+	margin-bottom: 20px;
+}
+
+.md-list-item-inner {
+	margin-bottom: 20px;
+}
+
+#button_AF {
+  background: #16605d;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px
 }
