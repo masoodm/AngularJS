@@ -1,0 +1,48 @@
+.listdemoBasicUsage md-divider {
+  margin-top: 10px;
+  margin-bottom: 0; }
+
+ html, body {
+ 	background-color: #d3d3d3;
+ 	height: 100%;
+ 	padding: 0;
+ 	margin: 0;
+
+ }
+
+#body {
+	
+	/*width: 80%;*/
+	/*align-items: center;*/
+	text-align: center;
+	margin: 10%;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: row;
+}
+
+#header {
+	background-color: #01234f;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#davis_logo {
+	width: 10%;
+	height: 10%;
+	margin: 20px;
+}
+
+#aggie_feed {
+	color: white;
+	font-size: 36px;
+	font-family: "Arial";
+}
+
+#card_contents {
+	margin: 20px; 
+	background-color: white;
+	height: 100%;
+	padding: 10px;
+}
