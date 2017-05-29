@@ -19,51 +19,33 @@
     <p></p>
        <md-card-content>
           <div layout="column" layout-align="space-between center">
-            <span>People Attending/Attended</span>
-            <md-select id = "yy" ng-model="b" placeholder="Yes" class="md-no-underline" ng-init="a='Yes'" ng-click>
-              <md-option value="yes">Yes</md-option>
-              <md-option value="no">No</md-option>
-            </md-select>
+            <span>People Attending/Attended</span> 
+            <input type="checkbox" ng-model="pplAttending" ng-init="pplAttending = true">
+
           </div>
        <div layout="column" layout-align="space-between center">
             <span>People Interested</span>
-            <md-select id = "yy" ng-model="c" placeholder="Yes" class="md-no-underline" ng-init="b='Yes'" ng-click>
-              <md-option value="yes2">Yes</md-option>
-              <md-option value="no2">No</md-option>
-            </md-select>
+            <input type="checkbox" ng-model="pplInterested" ng-init="pplInterested = true">
+   
           </div>      
           <div layout="column" layout-align="space-between center">
             <span>People Declined</span>
-            <md-select id = "yy" ng-model="d" placeholder="Yes" class="md-no-underline" ng-init="c='Yes'" ng-click>
-              <md-option value="yes3">Yes</md-option>
-              <md-option value="no3">No</md-option>
-            </md-select>
+            <input type="checkbox" ng-model="pplDeclined" ng-init="pplDeclined = true">
+
           </div>
           <div layout="column" layout-align="space-between center">
             <span>People With No-Responses</span>
-            <md-select id = "yy" ng-model="e" placeholder="Yes" class="md-no-underline" ng-init="d='Yes'" ng-click>
-              <md-option value="yes4">Yes</md-option>
-              <md-option value="no4">No</md-option>
-            </md-select>
+            <input type="checkbox" ng-model="pplNoResponse" ng-init="pplNoResponse = true">
           </div>
           <div layout="column" layout-align="space-between center">
             <span>Event Description</span>
-            <md-select id = "yy" ng-model="f" placeholder="Yes" class="md-no-underline" ng-init="a='Yes'" ng-click>
-              <md-option value="yes5">Yes</md-option>
-              <md-option value="no5">No</md-option>
-            </md-select>
+            <input type="checkbox" ng-model="eventDescription" ng-init="eventDescription = true">
           </div>
           <div layout="column" layout-align="space-between center">
             <span>Will you hire me?</span>
-           <md-select id = "yy" ng-model="g" placeholder="Yes" class="md-no-underline" ng-init="a='Yes'" ng-click>
-              <md-option value="yes6">Yes</md-option>
-              <md-option value="no6">Obviously</md-option>
-              <md-option value="no6">Heck yeah!</md-option>
-              <md-option value="no7">This item does not do anything :) </md-option>
-            </md-select>
+            <input type="checkbox" ng-model="hireMe" ng-init="hireMe = true">
           </div>
 
-   <button id="button_AF" ng-click="updateInfo(b,c,d,e,f,g);">SUBMIT</button>
       </div>
         <div flex-gt-sm="70" flex="">
 
@@ -81,15 +63,15 @@
 
                     <h3><strong>{{ item.title }}</strong>   <span id="datee"> - {{ item.object.contentImage.ucdEdusModel.event.startDate }}</span></h3>
 
-                    <h4 id="attendance"><strong>Attended / Will Attend: </strong> </h4><p id="attendance1">{{ item.object.contentImage.ucdEdusModel.event.attended }}</p>
+                    <h4 ng-if="pplAttending" id="attendance"><strong>Attended / Will Attend: </strong> </h4><p ng-if="pplAttending" id="attendance1">{{ item.object.contentImage.ucdEdusModel.event.attended }}</p>
                     
-                    <h4 id="interestedd"><strong>Interested: </strong></h4><p id="interestedd1">{{ item.object.contentImage.ucdEdusModel.event.interested }}</p>
+                    <h4 ng-if="pplInterested" id="interestedd"><strong>Interested: </strong></h4><p ng-if="pplInterested" id="interestedd1">{{ item.object.contentImage.ucdEdusModel.event.interested }}</p>
                     
-                    <h4 id="declinedd"><strong>Declined: </strong></h4><p id="declinedd1">{{ item.object.contentImage.ucdEdusModel.event.declined }}</p>
+                    <h4 ng-if="pplDeclined" id="declinedd"><strong>Declined: </strong></h4><p ng-if="pplDeclined" id="declinedd1">{{ item.object.contentImage.ucdEdusModel.event.declined }}</p>
                     
-                    <h4 id="noreplyy"><strong>No Reply: </strong></h4><p id="noreplyy1">{{ item.object.contentImage.ucdEdusModel.event.noreply }}</p>
+                    <h4 ng-if="pplNoResponse" id="noreplyy"><strong>No Reply: </strong></h4><p ng-if="pplNoResponse" id="noreplyy1">{{ item.object.contentImage.ucdEdusModel.event.noreply }}</p>
                     
-                    <h4 id="descriptionn"><strong>Description: </strong></h4><p id="descriptionn1">{{item.object.content}}</p>
+                    <h4 ng-if="eventDescription" id="descriptionn"><strong>Description: </strong></h4><p ng-if="eventDescription"id="descriptionn1">{{item.object.content}}</p>
                                    
                   </div>
                 </md-list-item>

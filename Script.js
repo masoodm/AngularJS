@@ -115,79 +115,9 @@ $http.get('https://graph.facebook.com/v2.9/478748558921942?fields=about,location
 
 
 });
-$scope.updateInfo = function(v2,v3,v4, v5,v6, v7) {
-        // alert("EKLJEKJF");
-        // console.log(v1 + v2);
 
-   
-        if(v2 == "no"){
-            changeCSS(attendance);
-            changeCSS(attendance1);
-
-
-        } 
-        if (v2 == "yes") {
-            changeCSSBlock(attendance);
-            changeCSSBlock(attendance1);
-        }
-        if(v3 == "no2"){
-            changeCSS(interestedd);
-            changeCSS(interestedd1);
-
-
-        } 
-        if (v3 == "yes2") {
-            changeCSSBlock(interestedd);
-            changeCSSBlock(interestedd1);
-        }
-        if(v4 == "no3"){
-            changeCSS(declinedd);
-            changeCSS(declinedd1);
-
-
-        } 
-        if (v4 == "yes3") {
-            changeCSSBlock(declinedd);
-            changeCSSBlock(declinedd1);
-        }
-        if(v5 == "no4"){
-            changeCSS(noreplyy);
-            changeCSS(noreplyy1);
-          
-
-        } 
-        if (v5 == "yes4") {
-            changeCSSBlock(noreplyy);
-            changeCSSBlock(noreplyy1);
-        }
-        if(v6 == "no5"){
-            changeCSS(descriptionn);
-            changeCSS(descriptionn1);
-
-
-        } 
-        if (v6 == "yes5") {
-            changeCSSBlock(descriptionn);
-            changeCSSBlock(descriptionn1);
-        }
-        
-    }
 
 });
-
-function changeCSS(id) {
-    document.getElementsByClassName(id);
-    for(var i = 0; i< id.length; i++){
-        id[i].style.display = "none";
-    }
-}
-
-function changeCSSBlock(id) {
-    document.getElementsByClassName(id);
-    for(var i = 0; i< id.length; i++){
-        id[i].style.display = "block";
-    }
-}
 
 function dateStyle (date){
     var date1 = new Date(date);
